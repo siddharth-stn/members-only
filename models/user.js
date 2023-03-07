@@ -19,7 +19,6 @@ const UserSchema = new Schema({
     enum: [true, false],
     default: false,
   },
-  message: [{ type: Schema.Types.ObjectId, ref: "Message" }],
 });
 
 UserSchema.virtual("name").get(function () {
