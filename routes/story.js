@@ -24,6 +24,12 @@ router.get("/make-admin", userController.make_admin_get);
 router.post("/make-admin", userController.make_admin_post);
 
 //* MESSAGE Routes *//
-router.get();
+router.get("/message-list", messageController.message_list_get);
+
+router.get("/message-create", messageController.message_create_get);
+
+router.post("/message-create", messageController.message_create_post);
+
+router.post("message-delete", messageController.message_delete_post);
 
 module.exports = router;
