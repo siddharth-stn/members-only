@@ -6,11 +6,12 @@ exports.sign_up_get = (req, res, next) => {
   // along with a link to the login page
 
   // if the user is already logged in then, the
-  // page will be redirected to the dashboard
-  res.send("Not Implemented: Dashboard get route");
+  // page will be redirected to the dashboard (show/list all messages)
+  res.send("Not Implemented: Sign Up get route");
 };
 
 exports.sign_up_post = (req, res, next) => {
+  // after successful sign up show the dashboard
   res.send("Not Implemented: Sign Up POST");
 };
 
@@ -19,6 +20,7 @@ exports.login_get = (req, res, next) => {
 };
 
 exports.login_post = (req, res, next) => {
+  // after successful login show the dashboard
   res.send("Not Implemented: Login POST");
 };
 
@@ -27,6 +29,8 @@ exports.join_club_get = (req, res, next) => {
 };
 
 exports.join_club_post = (req, res, next) => {
+  // update the logged in user membership status to Club Member
+  // if the user enters the secret password
   res.send("Not Implemented: Join Club POST");
 };
 
