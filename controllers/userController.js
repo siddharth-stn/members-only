@@ -31,6 +31,7 @@ exports.join_club_get = (req, res, next) => {
 exports.join_club_post = (req, res, next) => {
   // update the logged in user membership status to Club Member
   // if the user enters the secret password
+  // after successful operation redirect to the dashboard
   res.send("Not Implemented: Join Club POST");
 };
 
