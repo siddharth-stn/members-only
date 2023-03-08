@@ -7,7 +7,8 @@ exports.sign_up_get = (req, res, next) => {
 
   // if the user is already logged in then, the
   // page will be redirected to the dashboard (show/list all messages)
-  res.send("Not Implemented: Sign Up get route");
+  //res.send("Not Implemented: Sign Up get route");
+  res.render("index", { title: "Im Groot" });
 };
 
 exports.sign_up_post = (req, res, next) => {
