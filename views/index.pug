@@ -1,5 +1,33 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1.text-center.content-heading= heading
+  form.sign-up(action="/sign-up" method='POST')
+    div.row
+      div.col  
+        div.form-division
+          label(for="first_name") First Name: 
+        div.form-division
+          label(for="family_name") Family Name: 
+        div.form-division
+          label(for="username") Username: 
+        div.form-division
+          label(for="password") Password:
+        div.form-division
+          label(for="confPassword") Confirm Password: 
+      div.col
+        div.form-division
+          input#first_name(type="text" name="first_name" required=true)   
+        div.form-division
+          input#family_name(type="text" name="family_name" required=true)
+        div.form-division
+          input#username(type="email" name="username" required=true)
+        div.form-division
+          input#password(type="password" name="password" required=true)      
+        div.form-division
+          input#confPassword(type="password" name="confPassword" required=true)
+    button.btn.btn-primary.submit-btn Submit
+
+  p.login-link If you are already a member then 
+    | 
+    a(href="") login here.

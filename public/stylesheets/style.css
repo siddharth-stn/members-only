@@ -58,3 +58,39 @@ a {
   padding: 20px;
   padding-left: 40px;
 }
+
+.content-heading {
+  padding-bottom: 20px;
+}
+
+.form-division {
+  padding: 20px 0 20px 0;
+}
+
+input {
+  border: none;
+  outline: none;
+  background-color: var(--body-background-color);
+  margin-left: 20px;
+  border-bottom: 2px solid black;
+  width: 300px;
+  color: cadetblue;
+}
+
+.login-link {
+  margin-top: 100px;
+}
+
+.sign-up {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.submit-btn {
+  display: block;
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}

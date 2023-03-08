@@ -1,14 +1,17 @@
 const User = require("../models/user");
+const { body, validationResult } = require("express-validator");
 
+// if the user is not already logged in,
+// sign up page will be shown
+// along with a link to the login page
+
+// if the user is already logged in then, the
+// page will be redirected to the dashboard (show/list all messages)
+//res.send("Not Implemented: Sign Up get route");
 exports.sign_up_get = (req, res, next) => {
-  // if the user is not already logged in,
-  // sign up page will be shown
-  // along with a link to the login page
-
-  // if the user is already logged in then, the
-  // page will be redirected to the dashboard (show/list all messages)
-  //res.send("Not Implemented: Sign Up get route");
-  res.render("index", { title: "Im Groot" });
+  res.render("index", {
+    heading: "Sign - Up",
+  });
 };
 
 exports.sign_up_post = (req, res, next) => {
