@@ -17,17 +17,24 @@ block content
           label(for="confPassword") Confirm Password: 
       div.col
         div.form-division
-          input#first_name(type="text" name="first_name" required=true)   
+          input#first_name(type="text" name="first_name" required=true value=(undefined === user ? '' : user.first_name))   
         div.form-division
-          input#family_name(type="text" name="family_name" required=true)
+          input#family_name(type="text" name="family_name" required=true value=(undefined === user ? '' : user.family_name))
         div.form-division
-          input#username(type="email" name="username" required=true)
+          input#username(type="email" name="username" required=true value=(undefined === user ? '' : user.username))
         div.form-division
           input#password(type="password" name="password" required=true)      
         div.form-division
           input#confPassword(type="password" name="confPassword" required=true)
     button.btn.btn-primary.submit-btn Submit
 
-  p.login-link If you are already a member then 
-    | 
-    a(href="") login here.
+  if (user == undefined)
+    p.login-link If you are already a member then 
+      | 
+      a(href="") login here.
+  else
+    hr
+    ul
+      each error in errors
+        li(style="color: red;")!=error.msg
+
