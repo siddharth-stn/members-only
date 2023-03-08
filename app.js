@@ -13,7 +13,9 @@ async function main() {
   await mongoose.connect(mongoDbURL);
 }
 
-main().catch((err) => console.log(err));
+main()
+  .then(() => console.log("Connected to database"))
+  .catch((err) => console.log(err));
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
