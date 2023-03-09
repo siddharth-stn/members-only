@@ -1,7 +1,28 @@
 const Message = require("../models/message");
 
 exports.message_list_get = (req, res, next) => {
-  res.send("Not Implemented: Show all messages GET");
+  Message.find()
+    .exec()
+    .then((results) => {
+      if (!req.user || req.user.membershipStatus == "Normal") {
+        results.forEach((element) => {
+          element = {
+            title: element.title,
+            text: element.text,
+          };
+        });
+        res.render("/dashboard", {
+          user: req.user || "Unregister",
+          results: results,
+        });
+        return;
+      }
+      res.render("/dashboard", {
+        user: req.user,
+        results: results,
+      });
+    })
+    .catch((err) => next(err));
 };
 
 exports.message_create_get = (req, res, next) => {
