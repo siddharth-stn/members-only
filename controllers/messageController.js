@@ -80,5 +80,9 @@ exports.message_create_post = [
 ];
 
 exports.message_delete_post = (req, res, next) => {
-  res.send("Not Implemented: Delete messages POST");
+  if (req.user) {
+    Message.findByIdAndDelete(req.body.messageid).then(() => {
+      res.redirect("/story/message-list");
+    });
+  }
 };
