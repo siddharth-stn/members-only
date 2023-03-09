@@ -11,14 +11,12 @@ exports.message_list_get = (req, res, next) => {
             text: element.text,
           };
         });
-        res.render("/dashboard", {
-          user: req.user || "Unregister",
+        res.render("dashboard", {
           results: results,
         });
         return;
       }
-      res.render("/dashboard", {
-        user: req.user,
+      res.render("dashboard", {
         results: results,
       });
     })

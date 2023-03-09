@@ -121,7 +121,7 @@ exports.login_post = [
           if (err) {
             return next(err);
           }
-          res.redirect("/jeet");
+          res.redirect("/story/message-list");
         });
       }
     })(req, res, next);

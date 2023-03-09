@@ -94,3 +94,21 @@ input {
   margin-right: auto;
   margin-top: 50px;
 }
+
+.message-row {
+  margin-top: 50px;
+  height: 650px;
+}
+
+.message-container {
+  background-color: #E8E1A9;
+  padding: 10px;
+  overflow: auto;
+}
+
+.message-div {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid gray;
+}

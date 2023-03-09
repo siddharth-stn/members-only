@@ -1,4 +1,36 @@
 extends layout 
 
 block content 
-  
+  div.container
+    div.row
+      div.col-9
+      div.col-3
+        h5 Hello, 
+          | 
+          if locals.currentUser
+            | #{locals.currentUser.first_name} 
+          else 
+            | Unregistered 
+    div.row.message-row
+      div.col-1
+      div.col-10.container.message-container
+        if results.length == 0 
+          p No messages found
+        else
+          each element, index in results 
+            div.message-div
+              h6 Message #{index + 1}, #{element.title}
+              p #{element.text}
+              if element.author 
+                div.row
+                  div.col-4
+                    span= element.author
+                  div.col-4
+                    if locals.currentUser.isAdmin === true 
+                      button.btn.btn-danger Delete
+                    else 
+                      |
+                  div.col-4
+                    span= element.date
+      div.col-1
+
