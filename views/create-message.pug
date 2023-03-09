@@ -15,3 +15,10 @@ block content
         div.form-division
           textarea.form-control#text(type="text" name="text" placeholder="Write your message here..." required=true)
         button.btn.btn-primary.submit-btn Submit
+
+  if error 
+    ul 
+      li(style="color:red; margin-top: 30px;")= error
+  if anotherError 
+    ul 
+      li(style="color:red; margin-top: 30px;")= anotherError
