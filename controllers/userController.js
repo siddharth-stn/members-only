@@ -2,7 +2,6 @@ const User = require("../models/user");
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
-require("../config/passport");
 
 // if the user is not already logged in,
 // sign up page will be shown
@@ -119,7 +118,12 @@ exports.login_post = [
           errors: info,
         });
       } else {
-        res.redirect("/jeet");
+        req.logIn(user, (err) => {
+          if (err) {
+            return next(err);
+          }
+          res.redirect("/jeet");
+        });
       }
     })(req, res, next);
   },

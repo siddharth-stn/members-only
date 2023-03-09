@@ -8,6 +8,9 @@ const session = require("express-session");
 const passport = require("passport");
 const mongoose = require("mongoose");
 
+// initialize local strategy
+const initializePassport = require("./config/passport");
+
 //setup the database connection
 const mongoDbURL = process.env.MONGO_DB;
 
@@ -41,6 +44,7 @@ app.use(
     saveUninitialized: true,
   })
 );
+initializePassport(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
