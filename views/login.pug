@@ -1,0 +1,17 @@
+extends layout 
+
+block content 
+  h1.text-center.content-heading= heading 
+  form.form-container(action="" method='POST') 
+    div.row
+      div.col
+        div.form-division
+          label(for="username") Username:
+        div.form-division
+          label(for="password") Password:
+      div.col
+        div.form-division
+          input#username(type="email" name="username")
+        div.form-division
+          input#password(type="password" name="password")
+    button.btn.btn-primary.submit-btn Submit 

@@ -85,7 +85,9 @@ exports.sign_up_post = [
 ];
 
 exports.login_get = (req, res, next) => {
-  res.send("Not Implemented: Login GET");
+  res.render("login", {
+    heading: "Login",
+  });
 };
 
 exports.login_post = (req, res, next) => {

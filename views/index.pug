@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1.text-center.content-heading= heading
-  form.sign-up(action="/story/sign-up" method='POST')
+  form.form-container(action="/story/sign-up" method='POST')
     div.row
       div.col  
         div.form-division
@@ -31,7 +31,7 @@ block content
   if (user == undefined)
     p.login-link If you are already a member then 
       | 
-      a(href="") login here.
+      a(href="/story/login") login here.
   else
     hr
     ul
