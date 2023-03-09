@@ -76,7 +76,6 @@ exports.sign_up_post = [
       user
         .save()
         .then(() => {
-          console.log(user.url);
           // res.redirect()
           next();
         })
