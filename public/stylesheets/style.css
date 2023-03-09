@@ -67,7 +67,7 @@ a {
   padding: 20px 0 20px 0;
 }
 
-input {
+input, textarea {
   border: none;
   outline: none;
   background-color: var(--body-background-color);

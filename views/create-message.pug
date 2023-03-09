@@ -1,0 +1,17 @@
+extends layout 
+
+block content
+  div.container
+    div.row
+      if locals.currentUser
+        div.col-9
+        div.col-3
+          h4 Hello, #{locals.currentUser.first_name}
+    div.row
+      h1.text-center= title 
+      form.form-container(action="" method='POST')
+        div.form-division
+          input.form-control#title(type="text" name="title" placeholder="Enter the Message Title" required=true)   
+        div.form-division
+          textarea.form-control#text(type="text" name="text" placeholder="Write your message here..." required=true)
+        button.btn.btn-primary.submit-btn Submit

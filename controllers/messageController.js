@@ -24,7 +24,9 @@ exports.message_list_get = (req, res, next) => {
 };
 
 exports.message_create_get = (req, res, next) => {
-  res.send(`Not Implemented: Create new message GET`);
+  res.render("create-message", {
+    title: "Create Message",
+  });
 };
 
 exports.message_create_post = (req, res, next) => {
