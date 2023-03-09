@@ -134,14 +134,31 @@ exports.login_post = [
 ];
 
 exports.join_club_get = (req, res, next) => {
-  res.send("Not Implemented: Join Club GET");
+  res.render("join-club", {
+    title: "Join Club",
+  });
 };
 
 exports.join_club_post = (req, res, next) => {
   // update the logged in user membership status to Club Member
   // if the user enters the secret password
   // after successful operation redirect to the dashboard
-  res.send("Not Implemented: Join Club POST");
+  if (req.user) {
+    if (req.body.secret === "clubber") {
+      User.findByIdAndUpdate(req.user._id, {
+        membershipStatus: "Club Member",
+      }).then(() => {
+        res.redirect("/story/message-list");
+      });
+    } else {
+      const error = "Wrong Secret Key";
+      res.render("join-club", {
+        title: "Join Club",
+        error,
+      });
+      return;
+    }
+  }
 };
 
 exports.make_admin_get = (req, res, next) => {

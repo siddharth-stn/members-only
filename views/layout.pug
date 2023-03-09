@@ -21,7 +21,7 @@ html(lang="en")
               a(href="/story/message-list") Show all messages
             if locals.currentUser && locals.currentUser.membershipStatus === "Normal"
               li 
-                a(href="") Join Club
+                a(href="/story/join-club") Join Club
             if locals.currentUser && locals.currentUser.isAdmin != true
               li 
                 a(href="") Become Admin
