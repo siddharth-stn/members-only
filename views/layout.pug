@@ -18,11 +18,13 @@ html(lang="en")
         div.col-3.side-panel
           ul 
             li 
-              a(href="") Show all messages 
-            li 
-              a(href="") Join Club 
-            li 
-              a(href="") Become Admin
+              a(href="") Show all messages
+            if locals.currentUser && locals.currentUser.membershipStatus === "Normal"
+              li 
+                a(href="") Join Club
+            if locals.currentUser && locals.currentUser.isAdmin != true
+              li 
+                a(href="") Become Admin
             li 
               a(href="") Create new message 
         div.col.main-content
