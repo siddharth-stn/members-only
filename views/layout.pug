@@ -24,7 +24,7 @@ html(lang="en")
                 a(href="/story/join-club") Join Club
             if locals.currentUser && locals.currentUser.isAdmin != true
               li 
-                a(href="") Become Admin
+                a(href="/story/make-admin") Become Admin
             li 
               a(href="/story/message-create") Create new message 
         div.col.main-content

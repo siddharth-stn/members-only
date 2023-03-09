@@ -162,9 +162,26 @@ exports.join_club_post = (req, res, next) => {
 };
 
 exports.make_admin_get = (req, res, next) => {
-  res.send("Not Implemented: Make Admin GET");
+  res.render("make-admin", {
+    title: "Make Admin",
+  });
 };
 
 exports.make_admin_post = (req, res, next) => {
-  res.send("Not Implemented: Make Admin POST");
+  if (req.user) {
+    if (req.body.secretAdminKey === "rupert") {
+      User.findByIdAndUpdate(req.user._id, {
+        isAdmin: true,
+      }).then(() => {
+        res.redirect("/story/message-list");
+      });
+    } else {
+      const error = "Wrong Secret Key";
+      res.render("make-admin", {
+        title: "Make Admin",
+        error,
+      });
+      return;
+    }
+  }
 };

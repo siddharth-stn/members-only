@@ -1,0 +1,15 @@
+extends layout 
+
+block content
+  div.row
+    div.col-9
+    div.col-3
+      if locals.currentUser
+        h4 Hello, #{locals.currentUser.first_name}
+  h1(style="margin-bottom: 50px;").text-center= title
+  form(action="" method="POST") 
+    input.form-control#secretAdminKey(type="text" placeholder="Enter secret key" name="secretAdminKey")
+    button.btn.btn-primary.submit-btn Submit
+  if error 
+    ul 
+      li(style="color: red;") #{error}
