@@ -30,6 +30,15 @@ router.get("/message-create", messageController.message_create_get);
 
 router.post("/message-create", messageController.message_create_post);
 
-router.post("message-delete", messageController.message_delete_post);
+router.post("/message-delete", messageController.message_delete_post);
+
+router.get("/log-out", (req, res, next) => {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/story/sign-up");
+  });
+});
 
 module.exports = router;
