@@ -1,6 +1,8 @@
 const User = require("../models/user");
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
+const passport = require("passport");
+require("../config/passport");
 
 // if the user is not already logged in,
 // sign up page will be shown
@@ -90,10 +92,38 @@ exports.login_get = (req, res, next) => {
   });
 };
 
-exports.login_post = (req, res, next) => {
-  // after successful login show the dashboard
-  res.send("Not Implemented: Login POST");
-};
+exports.login_post = [
+  // validate and sanitize fields
+  body("username", "Username must not be empty").trim().escape(),
+  body("password", "Password must not be empty").trim().escape(),
+
+  // Process the request after validation and sanitization
+  (req, res, next) => {
+    // Extract the validation errors from req
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      res.render("login", {
+        heading: "Login",
+        errors: errors.array(),
+      });
+      return;
+    }
+    passport.authenticate("local", (err, user, info) => {
+      if (err) {
+        return next(err);
+      }
+      if (!user) {
+        res.render("login", {
+          heading: "Login",
+          errors: info,
+        });
+      } else {
+        res.redirect("/jeet");
+      }
+    })(req, res, next);
+  },
+];
 
 exports.join_club_get = (req, res, next) => {
   res.send("Not Implemented: Join Club GET");
