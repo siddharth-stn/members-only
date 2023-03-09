@@ -11,6 +11,7 @@ block content
             | #{locals.currentUser.first_name} 
           else 
             | Unregistered 
+        a(href="/story/log-out").btn.btn-secondary Logout
     div.row.message-row
       div.col-1
       div.col-10.container.message-container

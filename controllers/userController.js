@@ -76,8 +76,13 @@ exports.sign_up_post = [
       user
         .save()
         .then(() => {
-          // res.redirect()
-          next();
+          req.logIn(user, (err) => {
+            if (err) {
+              return next(err);
+            } else {
+              res.redirect("/story/message-list");
+            }
+          });
         })
         .catch((err) => next(err));
     });
